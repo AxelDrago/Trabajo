@@ -8,7 +8,7 @@ using Trabajo.Models;
 using Microsoft.EntityFrameworkCore;
 using Trabajo.Models;
 
-namespace Proyecto_Multiplataforma.Controllers
+namespace Trabajo.Controllers
 {
     public class HomeController: Controller
     {
