@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Trabajo.Models;
-namespace Proyecto_Multiplataforma.Models
+namespace Trabajo.Models
 {
     public class ICareContext: IdentityDbContext
     {
