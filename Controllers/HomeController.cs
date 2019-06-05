@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Trabajo.Models;
 using Microsoft.EntityFrameworkCore;
-using Trabajo.Models;
+
 
 namespace Trabajo.Controllers
 {
