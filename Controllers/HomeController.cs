@@ -12,6 +12,19 @@ namespace Trabajo.Controllers
 {
     public class HomeController: Controller
     {
+
+        public IActionResult Index(int tipomascota)
+        {
+            ViewBag.Tipos = _context.Tipos.ToList();
+            var mascotas = _context.Mascotas.Include(x => x.Tipo).ToList();
+
+            if(tipomascota != 0){
+                mascotas = _context.Mascotas.Include(x => x.Tipo)
+                            .Where(x => x.TipoId == tipomascota).ToList();
+            }
+            return View(mascotas);
+        }
+
         private ICareContext _context;
 
         public HomeController(ICareContext c){
