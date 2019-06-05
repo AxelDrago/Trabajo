@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Trabajo.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Trabajo.Controllers
 {
     public class HomeController: Controller
