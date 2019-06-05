@@ -6,6 +6,7 @@ namespace Trabajo.Models
     public class ICareContext: IdentityDbContext
     {
          public DbSet<Mascota> Mascotas { get; set; }
+         public DbSet<TipoMascota> Tipos { get; set; }
 
         public ICareContext(DbContextOptions<ICareContext> options) : base(options) { }
 
