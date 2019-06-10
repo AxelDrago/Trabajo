@@ -16,6 +16,8 @@ namespace Trabajo.ViewModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        
+
         [Required]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "La contraseña y la confirmación no coinciden.")]
