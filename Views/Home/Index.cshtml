@@ -22,10 +22,10 @@
 <div class="text-center">
     @foreach (var m in Model)
     {
-        <h2>@m.NombreTemporal</h2>
-        <h3>@m.Edad</h3>
-        <h3>@m.Raza</h3>
+        <h2>Nombre: @m.NombreTemporal</h2>
+        <h3>Edad: @m.Edad</h3>
+        <h3>Raza: @m.Raza</h3>
         <img src="@m.Foto" width="300">
-        <p>@m.Descripcion</p>
+        <p>Descripcion: @m.Descripcion</p>
     }
 </div>
