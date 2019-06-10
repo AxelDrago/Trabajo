@@ -50,5 +50,13 @@ namespace Trabajo.Controllers
 
             return View();
         }
+
+        public IActionResult Campañas() { 
+            return View(); 
+        }
+
+        public IActionResult Esterilizaciones() { 
+            return View(); 
+        }
     }
 }
