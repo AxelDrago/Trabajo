@@ -73,6 +73,10 @@ namespace Trabajo.Controllers
         }
 
         public IActionResult Contacto() {
+            return RedirectToAction("Confirmacion");
+        }
+
+        public IActionResult Confirmacion() {
             return View();
         }
     }
