@@ -61,7 +61,7 @@ namespace Trabajo.Controllers
                 _context.Add(c);
                 _context.SaveChanges();
 
-                return RedirectToAction("Campañas");
+                return RedirectToAction("ListaCampaña");
             }
             ViewBag.TipoC = _context.TipoC.ToList();
 
