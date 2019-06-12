@@ -52,10 +52,23 @@ namespace Trabajo.Controllers
         }
 
         public IActionResult Campañas() { 
+             ViewBag.TipoC = _context.TipoC.ToList();
             return View(); 
         }
+        [HttpPost]
+        public IActionResult Campañas(Campañas c) { 
+              if (ModelState.IsValid){
+                _context.Add(c);
+                _context.SaveChanges();
 
-        public IActionResult Esterilizaciones() { 
+                return RedirectToAction("Campañas");
+            }
+            ViewBag.TipoC = _context.TipoC.ToList();
+
+            return View();
+        }
+
+        public IActionResult ListaCampaña() { 
             return View(); 
         }
 
