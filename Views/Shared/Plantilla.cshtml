@@ -26,15 +26,14 @@
                     </li>
                 }
                 <li class="nav-item"><a class="nav-link" href="~/Home/RegistroMascota">Registrar Mascota</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" 
-                    id="menu" data-toggle="dropdown" href="#">
+                <li class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Más Información
-                    </a>
-                        <div class="dropdown-menu" aria-labelledby="menu">
-                            <a class="dropdown-item" href="">Esterilizaciones</a>
-                            <a class="dropdown-item" href="">Campañas para tus Mascotas</a>
-                        </div>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" asp-controller="home" asp-action="#">Esterilizaciones</a>
+                        <a class="dropdown-item" asp-controller="home" asp-action="campañas">Campañas para tus Mascotas</a>
+                    </div>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="">Contacto</a></li>               
             </ul>
