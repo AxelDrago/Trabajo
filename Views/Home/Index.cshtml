@@ -25,7 +25,14 @@
         <h2>Nombre: @m.NombreTemporal</h2>
         <h3>Edad: @m.Edad</h3>
         <h3>Raza: @m.Raza</h3>
-        <h3>Sexo: @m.Sexo</h3>
+        <h3>Sexo:
+        if (@m.Sexo=="0")
+        {
+            <text>Macho</text>
+        }else if (@m.Sexo=="1"){
+            <text>Hembra</text>
+        }
+        </h3>
         <img src="@m.Foto" width="300">
         <p>Descripcion: @m.Descripcion</p>
     }
