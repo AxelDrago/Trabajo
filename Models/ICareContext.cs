@@ -8,6 +8,8 @@ namespace Trabajo.Models
 
         public DbSet<Mascota> Mascotas { get; set; }
          public DbSet<TipoMascota> Tipos { get; set; }
+         public DbSet<Campañas> Campañas { get; set; }
+         public DbSet<TipoCampaña> TipoC { get; set; }
 
         public ICareContext(DbContextOptions<ICareContext> options) : base(options) { }
 
