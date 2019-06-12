@@ -25,16 +25,16 @@
                         <a class="nav-link text-white" asp-area="" asp-controller="Cuenta" asp-action="Login">Iniciar sesión</a>
                     </li>
                 }
-                <li class="nav-item"><a class="nav-link" href="~/Home/RegistroMascota">Registrar Mascota</a></li>
-                <li class="dropdown">
+                <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Más Información
+                        Mas Informacion
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" asp-controller="home" asp-action="#">Esterilizaciones</a>
-                        <a class="dropdown-item" asp-controller="home" asp-action="campañas">Campañas para tus Mascotas</a>
+                        <a class="dropdown-item" href="~/Home/Campañas">Registrar Campañas</a>
+                        <a class="dropdown-item" href="~/Home/ListaCampaña">Ver Campañas</a>
                     </div>
-                </li>
+                </div>
+                 <li class="nav-item"><a class="nav-link" href="~/Home/Campañas">Campañas</a></li>
                 <li class="nav-item"><a class="nav-link" href="">Contacto</a></li>               
             </ul>
         </div>
