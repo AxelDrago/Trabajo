@@ -1,3 +1,14 @@
+@model Contacto
 @{
     ViewBag.Titulo = "Contacto";
 }
+<form asp-action="contacto" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        Nombre: <input asp-for="Nombre">
+    </div>
+    <div>
+        Descripcion: <textarea asp-for="Descripcion"></textarea>
+    </div>
+    <button>Registrar</button>
+</form>
