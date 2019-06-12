@@ -1,12 +1,23 @@
 @model Mascota
 
-<form asp-action="registro" method="post">
+@{
+    ViewBag.Titulo = "Registrar Mascota";
+}
+
+<form asp-action="registrar mascota" method="post">
     <div asp-validation-summary="All"></div>
     <div>
         Nombre: <input asp-for="NombreTemporal">
     </div>
     <div>
         Edad: <input asp-for="Edad">
+    </div>
+    <div>
+        Sexo: 
+        <select name="Sexo">
+        <option value="0">M</option>
+        <option value="1">H</option>    
+    </select>   
     </div>
     <div>
         Foto: <input asp-for="Foto">

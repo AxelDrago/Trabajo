@@ -7,6 +7,8 @@ namespace Trabajo.Models
         [Required]
         public string NombreTemporal { get; set; }
         [Required]
+        public string Sexo { get; set; }
+        [Required]
         public string Descripcion { get; set; }                  
         [Required]
         public int Edad { get; set; }
