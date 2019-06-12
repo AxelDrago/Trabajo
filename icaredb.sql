@@ -149,7 +149,10 @@ CREATE TABLE `mascotas` (
 --
 
 INSERT INTO `mascotas` (`Id`, `NombreTemporal`, `Edad`, `Foto`, `TipoId`, `Raza`) VALUES
-(1, 'Alfred', 2, 'https://www.europuppy.com/wp-content/uploads/2019/01/xsire_15571_1-480x360.jpg.pagespeed.ic.D2MTWWHqSI.jpg', 1, 'Buldog');
+(1, 'wilfredo', 120, 'https://i0.wp.com/www.unsurcoenlasombra.com/wp-content/uploads/2015/03/perro-viejo.png', 1, 'Criolla'),
+(2, 'a', 4, 'https://www.purina.es/gato/purina-one/sites/g/files/mcldtz1856/files/2018-06/Mi_gato_no_come%20%282%29.jpg', 2, 'mixto'),
+(3, 'eagle', 2, 'https://estaticos.muyinteresante.es/uploads/images/article/5536592a70a1ae8d775df8a6/aves.jpg', 3, 'Aguila plateada'),
+(4, 'Alfred', 2, 'https://www.europuppy.com/wp-content/uploads/2019/01/xsire_15571_1-480x360.jpg.pagespeed.ic.D2MTWWHqSI.jpg', 1, 'Buldog');
 
 -- --------------------------------------------------------
 
