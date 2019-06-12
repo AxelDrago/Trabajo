@@ -58,5 +58,9 @@ namespace Trabajo.Controllers
         public IActionResult Esterilizaciones() { 
             return View(); 
         }
+
+        public IActionResult Contacto() {
+            return View();
+        }
     }
 }

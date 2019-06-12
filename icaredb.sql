@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2019 a las 02:22:22
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.2.12
+-- Tiempo de generación: 12-06-2019 a las 22:30:34
+-- Versión del servidor: 10.1.25-MariaDB
+-- Versión de PHP: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -114,7 +114,7 @@ CREATE TABLE `aspnetusers` (
 --
 
 INSERT INTO `aspnetusers` (`Id`, `UserName`, `NormalizedUserName`, `Email`, `NormalizedEmail`, `EmailConfirmed`, `PasswordHash`, `SecurityStamp`, `ConcurrencyStamp`, `PhoneNumber`, `PhoneNumberConfirmed`, `TwoFactorEnabled`, `LockoutEnd`, `LockoutEnabled`, `AccessFailedCount`) VALUES
-('4e5e9609-c0ff-4e12-84a9-c2b316575c30', 'axel', 'AXEL', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'0', 'AQAAAAEAACcQAAAAEHSymkHCuQOggPakoWDhOpbReanxp9eJDA8aZw0mAssKft49sX9rH5KnDZQO2YCOAA==', 'SRRUNVP56677L67SPIZE7DPHGL3DJHUS', '2b589c99-b1dd-4d72-bff1-33a083406642', NULL, b'0', b'0', NULL, b'1', 0);
+('4e5e9609-c0ff-4e12-84a9-c2b316575c30', 'axel', 'AXEL', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'1111111111111111111111111111111', 'AQAAAAEAACcQAAAAEHSymkHCuQOggPakoWDhOpbReanxp9eJDA8aZw0mAssKft49sX9rH5KnDZQO2YCOAA==', 'SRRUNVP56677L67SPIZE7DPHGL3DJHUS', '2b589c99-b1dd-4d72-bff1-33a083406642', NULL, b'1111111111111111111111111111111', b'1111111111111111111111111111111', NULL, b'1111111111111111111111111111111', 0);
 
 -- --------------------------------------------------------
 
@@ -137,22 +137,23 @@ CREATE TABLE `aspnetusertokens` (
 
 CREATE TABLE `mascotas` (
   `Id` int(11) NOT NULL,
-  `NombreTemporal` longtext,
+  `NombreTemporal` longtext NOT NULL,
   `Edad` int(11) NOT NULL,
-  `Foto` longtext,
+  `Foto` longtext NOT NULL,
   `TipoId` int(11) NOT NULL,
-  `Raza` longtext
+  `Raza` longtext NOT NULL,
+  `Descripcion` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `mascotas`
 --
 
-INSERT INTO `mascotas` (`Id`, `NombreTemporal`, `Edad`, `Foto`, `TipoId`, `Raza`) VALUES
-(1, 'wilfredo', 120, 'https://i0.wp.com/www.unsurcoenlasombra.com/wp-content/uploads/2015/03/perro-viejo.png', 1, 'Criolla'),
-(2, 'a', 4, 'https://www.purina.es/gato/purina-one/sites/g/files/mcldtz1856/files/2018-06/Mi_gato_no_come%20%282%29.jpg', 2, 'mixto'),
-(3, 'eagle', 2, 'https://estaticos.muyinteresante.es/uploads/images/article/5536592a70a1ae8d775df8a6/aves.jpg', 3, 'Aguila plateada'),
-(4, 'Alfred', 2, 'https://www.europuppy.com/wp-content/uploads/2019/01/xsire_15571_1-480x360.jpg.pagespeed.ic.D2MTWWHqSI.jpg', 1, 'Buldog');
+INSERT INTO `mascotas` (`Id`, `NombreTemporal`, `Edad`, `Foto`, `TipoId`, `Raza`, `Descripcion`) VALUES
+(1, 'wilfredo', 120, 'https://i0.wp.com/www.unsurcoenlasombra.com/wp-content/uploads/2015/03/perro-viejo.png', 1, 'Criolla', ''),
+(2, 'Lukas', 4, 'https://www.purina.es/gato/purina-one/sites/g/files/mcldtz1856/files/2018-06/Mi_gato_no_come%20%282%29.jpg', 2, 'mixto', ''),
+(3, 'eagle', 2, 'https://estaticos.muyinteresante.es/uploads/images/article/5536592a70a1ae8d775df8a6/aves.jpg', 3, 'Aguila plateada', ''),
+(4, 'Alfred', 2, 'https://www.europuppy.com/wp-content/uploads/2019/01/xsire_15571_1-480x360.jpg.pagespeed.ic.D2MTWWHqSI.jpg', 1, 'Buldog', '');
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ INSERT INTO `mascotas` (`Id`, `NombreTemporal`, `Edad`, `Foto`, `TipoId`, `Raza`
 
 CREATE TABLE `tipos` (
   `Id` int(11) NOT NULL,
-  `Nombre` longtext
+  `Nombre` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -191,7 +192,8 @@ CREATE TABLE `__efmigrationshistory` (
 --
 
 INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
-('20190605212021_Inicial', '2.2.4-servicing-10062');
+('20190605212021_Inicial', '2.2.4-servicing-10062'),
+('20190610230244_Descripcion', '2.2.4-servicing-10062');
 
 --
 -- Índices para tablas volcadas
@@ -274,25 +276,21 @@ ALTER TABLE `__efmigrationshistory`
 --
 ALTER TABLE `aspnetroleclaims`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `aspnetuserclaims`
 --
 ALTER TABLE `aspnetuserclaims`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `mascotas`
 --
 ALTER TABLE `mascotas`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `tipos`
 --
 ALTER TABLE `tipos`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- Restricciones para tablas volcadas
 --
