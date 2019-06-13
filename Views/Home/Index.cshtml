@@ -1,6 +1,6 @@
 @model List<Mascota>
 
-<h1>Mascotas en adopcion</h1>
+<h1 class="bg-gradient-primary">Mascotas en adopcion</h1>
 
 
 
@@ -9,21 +9,29 @@
     <p>Aún no hay mascotas para adoptar</p>
 }
 
-<div class="text-center">
+
+<br>
+<div class="card-group">
     @foreach (var m in Model)
     {
-        <h2>Nombre: @m.NombreTemporal</h2>
-        <h3>Edad: @m.Edad</h3>
-        <h3>Raza: @m.Raza</h3>
-        <h3>Sexo:
-        @if (@m.Sexo=="0")
-        {
-            <text>Macho</text>
-        }else if (@m.Sexo=="1"){
-            <text>Hembra</text>
-        }
-        </h3>
-        <img src="@m.Foto" width="300">
-        <p>Descripcion: @m.Descripcion</p>
+        <div class="col-sm-6">
+            <div class="card text-center text-white bg-secondary mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">Nombre: @m.NombreTemporal</h2>
+                    <h3>Edad: @m.Edad</h3>
+                    <h3>Raza: @m.Raza</h3>
+                    <h3>Sexo:
+                        @if (@m.Sexo=="0")
+                        {
+                        <text>Macho</text>
+                        }else if (@m.Sexo=="1"){
+                            <text>Hembra</text>
+                        }
+                    </h3>
+                    <p class="card-text">Descripcion: @m.Descripcion</p>
+                </div>
+            <img src="@m.Foto" class="img-fluid " alt="Responsive image">
+            </div>
+        </div>
     }
 </div>

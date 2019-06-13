@@ -3,15 +3,19 @@
 <h1>Eventos</h1>
 
 <form asp-action="listaevento" method="get">
-    Filtrar por tipo de Evento:
-    <select name="tipoevento">
-        <option value="0">Todos</option>
-        @foreach(var t in (List<TipoEvento>)ViewBag.TipoC)
-        {
-            <option value="@t.Id">@t.Nombre</option>
-        }
-    </select>   
-    <button>Filtrar</button>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            Filtrar por tipo de Evento:
+            <select name="tipoevento" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Todos...</option>
+            @foreach(var t in (List<TipoEvento>)ViewBag.TipoC)
+            {
+                <option value="@t.Id">@t.Nombre</option>
+            }
+            </select>
+        </div>  
+        <button class="btn btn-primary">Filtrar</button>
+    </div>
 </form>
 
 @if (Model.Count == 0)
@@ -19,11 +23,19 @@
     <p>Aún no hay campañas que ver</p>
 }
 
-<div class="text-center">
-    @foreach (var m in Model)
-    {
-        <h2>Titulo: @m.Titulo</h2>
-        <img src="@m.Foto" width="300">
-        <p>Descripcion: @m.Contenido</p>
-    }
+<br>
+
+ <div class="card-group">  
+@foreach (var m in Model)
+{
+        <div class="col-sm-6">
+            <div class="card text-center text-white bg-secondary mb-3">
+                <div class="card-body">
+                    <h2 class="card-title">Titulo: @m.Titulo</h2>
+                    <p class="card-text">Descripcion: @m.Contenido</p>
+                </div>
+                <img src="@m.Foto" class="card-img-top">  
+            </div>
+        </div>
+}
 </div>
