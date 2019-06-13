@@ -8,6 +8,7 @@ namespace Trabajo.Models
         public string Titulo { get; set; }
         [Required]
         public string Contenido { get; set; } 
+        public TipoEvento Tipo { get; set; }
         public int TipoId { get; set; }               
     }
 }

@@ -7,6 +7,6 @@ namespace Trabajo.Models
          public int Id { get; set; }
         [Required]
         public string Nombre { get; set; }
-        public List<Evento> Eventos { get; set; }
+        public List<Evento> Evento { get; set; }
     }
 }

@@ -1,13 +1,13 @@
 @model Evento
 
-<form asp-action="Eventos" method="post">
+<form asp-action="evento" method="post">
     <div asp-validation-summary="All"></div>
     <div>
         Titulo: <input asp-for="Titulo">
     </div>
     <div>
         Tipo:
-        <select name="TipoEvento">
+        <select name="TipoId">
             @foreach(var t in (List<TipoEvento>)ViewBag.TiposC)
             {
                 <option value="@t.Id">@t.Nombre</option>

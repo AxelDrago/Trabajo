@@ -2,9 +2,9 @@
 
 <h1>Eventos</h1>
 
-<form asp-action="Eventoas" method="get">
+<form asp-action="ListaEvento" method="get">
     Filtrar por tipo de Evento:
-    <select name="tipoevento">
+    <select name="TipoEvento">
         <option value="0">Todos</option>
         @foreach(var t in (List<TipoEvento>)ViewBag.TipoC)
         {
