@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-06-2019 a las 22:03:40
+-- Tiempo de generación: 13-06-2019 a las 23:54:34
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.12
 
@@ -151,7 +151,8 @@ CREATE TABLE `evento` (
 INSERT INTO `evento` (`Id`, `Titulo`, `Contenido`, `TipoId`, `Foto`) VALUES
 (1, 'Campaña en Surco', 'Se ha aperturado una campaña de esterilizacion en surco. Gratis para perros callejeros', 2, 'http://www.munlima.gob.pe/media/k2/items/cache/7000f8e034532181723a7f45a6cfa9c4_L.jpg'),
 (3, 'Campaña en miraflores', 'Se ha aperturado una campaña de esterilizacion en miraflores. Gratis para perros callejeros y perros en albergues', 2, 'http://superchannel12.com/wp-content/uploads/2018/04/31369138_1841391642589775_508214778531938304_o.jpg'),
-(4, 'Campaña en Lima', 'Carrera de perros y dueños en lima. Gran premio para ganadores. Comida de perro gratis por 1 año', 1, 'https://img.peru21.pe/files/article_content_ec_fotos/uploads/2017/08/09/598b76e0c452b.jpeg');
+(4, 'Campaña en Lima', 'Carrera de perros y dueños en lima. Gran premio para ganadores. Comida de perro gratis por 1 año', 1, 'https://img.peru21.pe/files/article_content_ec_fotos/uploads/2017/08/09/598b76e0c452b.jpeg'),
+(5, 'Campaña en La Molina', 'Gran concurso de belleza en celebracion del dia del can mestizo', 1, 'https://elcomercio.pe/files/listing_ec_flujo_xx/uploads/2017/09/29/59cddc498f87e.png');
 
 -- --------------------------------------------------------
 
@@ -321,13 +322,13 @@ ALTER TABLE `aspnetuserclaims`
 -- AUTO_INCREMENT de la tabla `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `mascotas`
 --
 ALTER TABLE `mascotas`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipoc`
