@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-06-2019 a las 23:55:59
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 7.1.7
+-- Tiempo de generación: 13-06-2019 a las 22:03:40
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -114,7 +114,8 @@ CREATE TABLE `aspnetusers` (
 --
 
 INSERT INTO `aspnetusers` (`Id`, `UserName`, `NormalizedUserName`, `Email`, `NormalizedEmail`, `EmailConfirmed`, `PasswordHash`, `SecurityStamp`, `ConcurrencyStamp`, `PhoneNumber`, `PhoneNumberConfirmed`, `TwoFactorEnabled`, `LockoutEnd`, `LockoutEnabled`, `AccessFailedCount`) VALUES
-('4e5e9609-c0ff-4e12-84a9-c2b316575c30', 'axel', 'AXEL', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'1111111111111111111111111111111', 'AQAAAAEAACcQAAAAEHSymkHCuQOggPakoWDhOpbReanxp9eJDA8aZw0mAssKft49sX9rH5KnDZQO2YCOAA==', 'SRRUNVP56677L67SPIZE7DPHGL3DJHUS', '2b589c99-b1dd-4d72-bff1-33a083406642', NULL, b'1111111111111111111111111111111', b'1111111111111111111111111111111', NULL, b'1111111111111111111111111111111', 0);
+('4e5e9609-c0ff-4e12-84a9-c2b316575c30', 'axel', 'AXEL', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'1', 'AQAAAAEAACcQAAAAEHSymkHCuQOggPakoWDhOpbReanxp9eJDA8aZw0mAssKft49sX9rH5KnDZQO2YCOAA==', 'SRRUNVP56677L67SPIZE7DPHGL3DJHUS', '2b589c99-b1dd-4d72-bff1-33a083406642', NULL, b'1', b'1', NULL, b'1', 0),
+('de265611-1d9a-4c24-bf72-4bcfb72add73', 'alex', 'ALEX', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'0', 'AQAAAAEAACcQAAAAEP75XlvheVKOk51CSUwk45pYNB24wiStjzS+FOqezahaqLRedoVArSaII+vdk2mdXg==', 'KQH5XU3OFTFRY6OWN3ZSCUEA2PINGYKE', '4360f8f8-4ca2-4980-9956-7b5e72b30a9f', NULL, b'0', b'0', NULL, b'1', 0);
 
 -- --------------------------------------------------------
 
@@ -132,16 +133,25 @@ CREATE TABLE `aspnetusertokens` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `campañas`
+-- Estructura de tabla para la tabla `evento`
 --
 
-CREATE TABLE `campañas` (
+CREATE TABLE `evento` (
   `Id` int(11) NOT NULL,
-  `Titulo` longtext NOT NULL,
-  `Contenido` longtext NOT NULL,
+  `Titulo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `Contenido` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `TipoId` int(11) NOT NULL,
-  `TipoCampañaId` int(11) DEFAULT NULL
+  `Foto` longtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `evento`
+--
+
+INSERT INTO `evento` (`Id`, `Titulo`, `Contenido`, `TipoId`, `Foto`) VALUES
+(1, 'Campaña en Surco', 'Se ha aperturado una campaña de esterilizacion en surco. Gratis para perros callejeros', 2, 'http://www.munlima.gob.pe/media/k2/items/cache/7000f8e034532181723a7f45a6cfa9c4_L.jpg'),
+(3, 'Campaña en miraflores', 'Se ha aperturado una campaña de esterilizacion en miraflores. Gratis para perros callejeros y perros en albergues', 2, 'http://superchannel12.com/wp-content/uploads/2018/04/31369138_1841391642589775_508214778531938304_o.jpg'),
+(4, 'Campaña en Lima', 'Carrera de perros y dueños en lima. Gran premio para ganadores. Comida de perro gratis por 1 año', 1, 'https://img.peru21.pe/files/article_content_ec_fotos/uploads/2017/08/09/598b76e0c452b.jpeg');
 
 -- --------------------------------------------------------
 
@@ -229,7 +239,10 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20190605212021_Inicial', '2.2.4-servicing-10062'),
 ('20190610230244_Descripcion', '2.2.4-servicing-10062'),
 ('20190612211532_Registro', '2.2.4-servicing-10062'),
-('20190612213435_Campaña', '2.2.4-servicing-10062');
+('20190612213435_Campaña', '2.2.4-servicing-10062'),
+('20190613190312_eventos', '2.2.4-servicing-10062'),
+('20190613193841_evento2', '2.2.4-servicing-10062'),
+('20190613195947_fotoevento', '2.2.4-servicing-10062');
 
 --
 -- Índices para tablas volcadas
@@ -240,56 +253,28 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 --
 ALTER TABLE `aspnetroleclaims`
   ADD PRIMARY KEY (`Id`),
-  ADD KEY `IX_AspNetRoleClaims_RoleId` (`RoleId`);
-
---
--- Indices de la tabla `aspnetroles`
---
-ALTER TABLE `aspnetroles`
-  ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `RoleNameIndex` (`NormalizedName`);
+  ADD KEY `IX_AspNetRoleClaims_RoleId` (`RoleId`(191));
 
 --
 -- Indices de la tabla `aspnetuserclaims`
 --
 ALTER TABLE `aspnetuserclaims`
   ADD PRIMARY KEY (`Id`),
-  ADD KEY `IX_AspNetUserClaims_UserId` (`UserId`);
+  ADD KEY `IX_AspNetUserClaims_UserId` (`UserId`(191));
 
 --
 -- Indices de la tabla `aspnetuserlogins`
 --
 ALTER TABLE `aspnetuserlogins`
   ADD PRIMARY KEY (`LoginProvider`,`ProviderKey`),
-  ADD KEY `IX_AspNetUserLogins_UserId` (`UserId`);
+  ADD KEY `IX_AspNetUserLogins_UserId` (`UserId`(191));
 
 --
--- Indices de la tabla `aspnetuserroles`
+-- Indices de la tabla `evento`
 --
-ALTER TABLE `aspnetuserroles`
-  ADD PRIMARY KEY (`UserId`,`RoleId`),
-  ADD KEY `IX_AspNetUserRoles_RoleId` (`RoleId`);
-
---
--- Indices de la tabla `aspnetusers`
---
-ALTER TABLE `aspnetusers`
+ALTER TABLE `evento`
   ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `UserNameIndex` (`NormalizedUserName`),
-  ADD KEY `EmailIndex` (`NormalizedEmail`);
-
---
--- Indices de la tabla `aspnetusertokens`
---
-ALTER TABLE `aspnetusertokens`
-  ADD PRIMARY KEY (`UserId`,`LoginProvider`,`Name`);
-
---
--- Indices de la tabla `campañas`
---
-ALTER TABLE `campañas`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `IX_Campañas_TipoCampañaId` (`TipoCampañaId`);
+  ADD KEY `IX_Evento_TipoId` (`TipoId`);
 
 --
 -- Indices de la tabla `mascotas`
@@ -325,71 +310,46 @@ ALTER TABLE `__efmigrationshistory`
 --
 ALTER TABLE `aspnetroleclaims`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `aspnetuserclaims`
 --
 ALTER TABLE `aspnetuserclaims`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT de la tabla `campañas`
+-- AUTO_INCREMENT de la tabla `evento`
 --
-ALTER TABLE `campañas`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `evento`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT de la tabla `mascotas`
 --
 ALTER TABLE `mascotas`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT de la tabla `tipoc`
 --
 ALTER TABLE `tipoc`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `tipos`
 --
 ALTER TABLE `tipos`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `aspnetroleclaims`
+-- Filtros para la tabla `evento`
 --
-ALTER TABLE `aspnetroleclaims`
-  ADD CONSTRAINT `FK_AspNetRoleClaims_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `aspnetuserclaims`
---
-ALTER TABLE `aspnetuserclaims`
-  ADD CONSTRAINT `FK_AspNetUserClaims_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `aspnetuserlogins`
---
-ALTER TABLE `aspnetuserlogins`
-  ADD CONSTRAINT `FK_AspNetUserLogins_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `aspnetuserroles`
---
-ALTER TABLE `aspnetuserroles`
-  ADD CONSTRAINT `FK_AspNetUserRoles_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_AspNetUserRoles_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `aspnetusertokens`
---
-ALTER TABLE `aspnetusertokens`
-  ADD CONSTRAINT `FK_AspNetUserTokens_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `campañas`
---
-ALTER TABLE `campañas`
-  ADD CONSTRAINT `FK_Campañas_TipoC_TipoCampañaId` FOREIGN KEY (`TipoCampañaId`) REFERENCES `tipoc` (`Id`);
+ALTER TABLE `evento`
+  ADD CONSTRAINT `FK_Evento_TipoC_TipoId` FOREIGN KEY (`TipoId`) REFERENCES `tipoc` (`Id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `mascotas`
