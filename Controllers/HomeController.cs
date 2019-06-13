@@ -68,8 +68,15 @@ namespace Trabajo.Controllers
             return View();
         }
 
-        public IActionResult ListaEvento() { 
-            return View(); 
+        public IActionResult ListaEvento(int tipoevento) { 
+            ViewBag.TipoC = _context.TipoC.ToList();
+            var Evento = _context.Evento.Include(x => x.Tipo).ToList();
+
+            if(tipoevento != 0){
+                Evento = _context.Evento.Include(x => x.Tipo)
+                            .Where(x => x.TipoId == tipoevento).ToList();
+            }
+            return View(Evento);
         }
 
         public IActionResult Contacto() {

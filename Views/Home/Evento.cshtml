@@ -8,11 +8,14 @@
     <div>
         Tipo:
         <select name="TipoId">
-            @foreach(var t in (List<TipoEvento>)ViewBag.TiposC)
+            @foreach(var t in (List<TipoEvento>)ViewBag.TipoC)
             {
                 <option value="@t.Id">@t.Nombre</option>
             }
         </select>
+    </div>
+    <div>
+        Foto: <input asp-for="Foto">
     </div>
     <div>
         Contenido: <textarea asp-for="Contenido"></textarea>

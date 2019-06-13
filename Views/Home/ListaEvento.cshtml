@@ -2,9 +2,9 @@
 
 <h1>Eventos</h1>
 
-<form asp-action="ListaEvento" method="get">
+<form asp-action="listaevento" method="get">
     Filtrar por tipo de Evento:
-    <select name="TipoEvento">
+    <select name="tipoevento">
         <option value="0">Todos</option>
         @foreach(var t in (List<TipoEvento>)ViewBag.TipoC)
         {
@@ -23,6 +23,7 @@
     @foreach (var m in Model)
     {
         <h2>Titulo: @m.Titulo</h2>
+        <img src="@m.Foto" width="300">
         <p>Descripcion: @m.Contenido</p>
     }
 </div>
