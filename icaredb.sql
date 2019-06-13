@@ -33,7 +33,7 @@ CREATE TABLE `aspnetroleclaims` (
   `RoleId` varchar(255) NOT NULL,
   `ClaimType` longtext,
   `ClaimValue` longtext
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -46,7 +46,7 @@ CREATE TABLE `aspnetroles` (
   `Name` varchar(256) DEFAULT NULL,
   `NormalizedName` varchar(256) DEFAULT NULL,
   `ConcurrencyStamp` longtext
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE `aspnetuserclaims` (
   `UserId` varchar(255) NOT NULL,
   `ClaimType` longtext,
   `ClaimValue` longtext
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,7 @@ CREATE TABLE `aspnetuserlogins` (
   `ProviderKey` varchar(128) NOT NULL,
   `ProviderDisplayName` longtext,
   `UserId` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,7 @@ CREATE TABLE `aspnetuserlogins` (
 CREATE TABLE `aspnetuserroles` (
   `UserId` varchar(255) NOT NULL,
   `RoleId` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ CREATE TABLE `aspnetusers` (
   `LockoutEnd` datetime(6) DEFAULT NULL,
   `LockoutEnabled` bit(1) NOT NULL,
   `AccessFailedCount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `aspnetusers`
@@ -127,7 +127,7 @@ CREATE TABLE `aspnetusertokens` (
   `LoginProvider` varchar(128) NOT NULL,
   `Name` varchar(128) NOT NULL,
   `Value` longtext
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -141,7 +141,7 @@ CREATE TABLE `campañas` (
   `Contenido` longtext NOT NULL,
   `TipoId` int(11) NOT NULL,
   `TipoCampañaId` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -158,7 +158,7 @@ CREATE TABLE `mascotas` (
   `Raza` longtext NOT NULL,
   `Descripcion` longtext NOT NULL,
   `Sexo` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `mascotas`
@@ -179,7 +179,7 @@ INSERT INTO `mascotas` (`Id`, `NombreTemporal`, `Edad`, `Foto`, `TipoId`, `Raza`
 CREATE TABLE `tipoc` (
   `Id` int(11) NOT NULL,
   `Nombre` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tipoc`
@@ -198,7 +198,7 @@ INSERT INTO `tipoc` (`Id`, `Nombre`) VALUES
 CREATE TABLE `tipos` (
   `Id` int(11) NOT NULL,
   `Nombre` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tipos`
@@ -219,7 +219,7 @@ INSERT INTO `tipos` (`Id`, `Nombre`) VALUES
 CREATE TABLE `__efmigrationshistory` (
   `MigrationId` varchar(95) NOT NULL,
   `ProductVersion` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `__efmigrationshistory`

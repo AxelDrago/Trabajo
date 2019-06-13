@@ -51,24 +51,24 @@ namespace Trabajo.Controllers
             return View();
         }
 
-        public IActionResult Campañas() { 
+        public IActionResult Evento() { 
              ViewBag.TipoC = _context.TipoC.ToList();
             return View(); 
         }
         [HttpPost]
-        public IActionResult Campañas(Campañas c) { 
+        public IActionResult Evento(Evento c) { 
               if (ModelState.IsValid){
                 _context.Add(c);
                 _context.SaveChanges();
 
-                return RedirectToAction("ListaCampaña");
+                return RedirectToAction("ListaEvento");
             }
             ViewBag.TipoC = _context.TipoC.ToList();
 
             return View();
         }
 
-        public IActionResult ListaCampaña() { 
+        public IActionResult ListaEvento() { 
             return View(); 
         }
 

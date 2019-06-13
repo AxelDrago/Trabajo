@@ -1,0 +1,21 @@
+@model Evento
+
+<form asp-action="Eventos" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        Titulo: <input asp-for="Titulo">
+    </div>
+    <div>
+        Tipo:
+        <select name="TipoEvento">
+            @foreach(var t in (List<TipoEvento>)ViewBag.TiposC)
+            {
+                <option value="@t.Id">@t.Nombre</option>
+            }
+        </select>
+    </div>
+    <div>
+        Contenido: <textarea asp-for="Contenido"></textarea>
+    </div>
+    <button>Registrar</button>
+</form>
