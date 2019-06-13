@@ -2,23 +2,30 @@
 
 <form asp-action="evento" method="post">
     <div asp-validation-summary="All"></div>
-    <div>
-        Titulo: <input asp-for="Titulo">
+    <div class="form-group col-7">
+        <label>Titulo: </label>
+        <input asp-for="Titulo" class="form-control"  placeholder="Titulo">
     </div>
-    <div>
-        Tipo:
-        <select name="TipoId">
+    <div class="form-row align-items-center col-7">
+        <label>Tipo:</label>
+        <select name="TipoId" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Escoger...</option>
             @foreach(var t in (List<TipoEvento>)ViewBag.TipoC)
             {
                 <option value="@t.Id">@t.Nombre</option>
             }
         </select>
     </div>
-    <div>
-        Foto: <input asp-for="Foto">
+    <div class="form-group col-7">
+        <label>Foto: </label>
+        <input asp-for="Foto" class="form-control"  placeholder="Foto">
     </div>
-    <div>
-        Contenido: <textarea asp-for="Contenido"></textarea>
+    <div class="form-group col-7">
+        <label for="exampleFormControlTextarea1">Contenido: </label>
+        <textarea asp-for="Contenido" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
-    <button>Registrar</button>
+    <div class="form-group col-2">
+        <button class="btn btn-primary">Registrarse</button>
+    </div>
+    
 </form>

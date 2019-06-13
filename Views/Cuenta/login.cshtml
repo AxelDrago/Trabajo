@@ -5,13 +5,15 @@
 
     <div asp-validation-summary="All"></div>
 
-    <div>
-        Nombre de usuario: <input asp-for="Usuario">
+    <div class="form-group col-7">
+        <label for="exampleInputEmail1">Nombre de usuario: </label>
+        <input asp-for="Usuario" class="form-control" id="exampleInputEmail1" placeholder="Usuario">
     </div>
-    <div>
-        Password: <input asp-for="Password">
+    <div class="form-group col-7">
+        <label for="exampleInputPassword1">Password: </label>
+        <input asp-for="Password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
-
-    <button>Iniciar sesión</button>
-
+    <div class="form-group col-2">
+        <button class="btn btn-primary">Iniciar sesión</button>
+    </div>
 </form>

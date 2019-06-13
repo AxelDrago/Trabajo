@@ -6,36 +6,45 @@
 
 <form asp-action="registrar mascota" method="post">
     <div asp-validation-summary="All"></div>
-    <div>
-        Nombre: <input asp-for="NombreTemporal">
+    <div class="form-group col-7">
+        <label>Nombre: </label>
+        <input asp-for="NombreTemporal" class="form-control"  placeholder="Nombre">
     </div>
-    <div>
-        Edad: <input asp-for="Edad">
+    <div class="form-group col-7">
+        <label>Edad: </label>
+        <input asp-for="Edad" class="form-control"  placeholder="Edad">
     </div>
-    <div>
-        Sexo: 
-        <select name="Sexo">
-        <option value="0">M</option>
-        <option value="1">H</option>    
-    </select>   
+    <div class="form-row align-items-center col-7">
+        <label>Sexo:</label> 
+        <select name="Sexo" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Escoger...</option>
+            <option value="0">M</option>
+            <option value="1">H</option>    
+        </select>   
     </div>
-    <div>
-        Foto: <input asp-for="Foto">
+    <div class="form-group col-7">
+        <label>Foto: </label>
+        <input asp-for="Foto" class="form-control"  placeholder="Foto">
     </div>
-    <div>
-        Tipo:
-        <select name="TipoId">
+    <div class="form-row align-items-center col-7">
+        <label>Tipo:</label>
+        <select name="TipoId" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Escoger...</option>
             @foreach(var t in (List<TipoMascota>)ViewBag.Tipos)
             {
                 <option value="@t.Id">@t.Nombre</option>
             }
         </select>
     </div>
-    <div>
-        Raza: <input asp-for="Raza">
+    <div class="form-group col-7">
+        <label>Raza: </label>
+        <input asp-for="Raza" class="form-control" placeholder="Raza">
     </div>
-    <div>
-        Descripcion: <textarea asp-for="Descripcion"></textarea>
+    <div class="form-group col-7">
+        <label for="exampleFormControlTextarea1">Descripcion: </label>
+        <textarea asp-for="Descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
-    <button>Registrar</button>
+    <div class="form-group col-2">
+        <button>Registrar</button>
+    </div>
 </form>
