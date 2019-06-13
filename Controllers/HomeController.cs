@@ -78,6 +78,6 @@ namespace Trabajo.Controllers
 
         public IActionResult Confirmacion() {
             return View();
-        }
+        }   
     }
 }
