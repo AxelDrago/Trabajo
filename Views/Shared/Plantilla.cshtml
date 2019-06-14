@@ -30,7 +30,7 @@
                         </ul>
                     </li>                
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav justify-content-end">
                     @if (Context.User.Identity.IsAuthenticated) {
                         <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Cuenta" asp-action="Logout">Cerrar sesión</a></li>
                     }
@@ -43,9 +43,10 @@
         </nav>
     </header>
 
-    @RenderBody()
- 
-
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    
     <footer class="card-footer text-muted text-center">&copy; @DateTime.Now.Year - ICare</footer>
 </body>
 </html>

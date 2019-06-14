@@ -1,37 +1,63 @@
 @model List<Mascota>
 
-<h1 class="bg-gradient-primary">Mascotas en adopcion</h1>
-
-
+<h1 class="text-center bg-gradient-primary">Mascotas en adopcion</h1>
 
 @if (Model.Count == 0)
 {
     <p>Aún no hay mascotas para adoptar</p>
 }
-
-
-<br>
-<div class="card-group">
-    @foreach (var m in Model)
-    {
-        <div class="col-sm-6">
-            <div class="card text-center text-white bg-secondary mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Nombre: @m.NombreTemporal</h2>
-                    <h3>Edad: @m.Edad</h3>
-                    <h3>Raza: @m.Raza</h3>
-                    <h3>Sexo:
-                        @if (@m.Sexo=="0")
+<div class="row">
+    <div class="col-3">
+        <div class="pos-f-t">
+            <nav class="navbar navbar-dark bg-dark">
+                <span class="text-light font-weight-bold">Filtrar Mascotas</span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>               
+                </button>               
+            </nav>
+            
+        </div>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-light p-4">
+                <form asp-action="index" method="get">
+                    Tipo de Mascota:
+                    <select name="tipomascota">
+                        <option value="0">Todos</option>
+                        @foreach(var t in (List<TipoMascota>)ViewBag.Tipos)
                         {
-                        <text>Macho</text>
-                        }else if (@m.Sexo=="1"){
-                            <text>Hembra</text>
+                            <option value="@t.Id">@t.Nombre</option>
                         }
-                    </h3>
-                    <p class="card-text">Descripcion: @m.Descripcion</p>
-                </div>
-            <img src="@m.Foto" class="img-fluid " alt="Responsive image">
+                    </select>
+                    <button class="btn btn-dark">Filtrar</button>
+                </form>
             </div>
         </div>
-    }
+    </div>
+
+    <div class="col-9">
+        <div class="card-group">
+            @foreach (var m in Model)
+            {
+                <div class="col-sm-6">
+                    <div class="card text-center text-white bg-secondary mb-3">
+                        <div class="card-body">
+                            <h2 class="card-title">Nombre: @m.NombreTemporal</h2>
+                            <h3>Edad: @m.Edad</h3>
+                            <h3>Raza: @m.Raza</h3>
+                            <h3>Sexo:
+                                @if (@m.Sexo=="0")
+                                {
+                                <text>Macho</text>
+                                }else if (@m.Sexo=="1"){
+                                    <text>Hembra</text>
+                                }
+                            </h3>
+                            <p class="card-text">Descripcion: @m.Descripcion</p>
+                        </div>
+                    <img src="@m.Foto" class="img-fluid " alt="Responsive image">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
