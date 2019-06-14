@@ -10,6 +10,7 @@ namespace Trabajo.Models
          public DbSet<TipoMascota> Tipos { get; set; }
          public DbSet<Evento> Evento { get; set; }
          public DbSet<TipoEvento> TipoC { get; set; }
+         public DbSet<Contacto> Sugerencias { get; set; }
 
         public ICareContext(DbContextOptions<ICareContext> options) : base(options) { }
 

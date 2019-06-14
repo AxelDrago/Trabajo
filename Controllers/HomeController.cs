@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trabajo.Models;
 using Microsoft.EntityFrameworkCore;
@@ -80,11 +81,27 @@ namespace Trabajo.Controllers
         }
 
         public IActionResult Contacto() {
-            return RedirectToAction("Confirmacion");
+            ViewBag.Sugerencias = _context.Sugerencias.ToList();
+            return View();
         }
 
+        [HttpPost]
+        public IActionResult Contacto(Contacto r)
+        {
+            if (ModelState.IsValid) {
+                _context.Add(r);
+                _context.SaveChanges();
+                TempData["nombre"] = r.Nombre;
+                TempData["email"] = r.Email;
+                TempData["descripcion"] = r.Descripcion;
+                return RedirectToAction("Confirmacion");
+            }
+            ViewBag.Sugerencias = _context.Sugerencias.ToList();
+            return View(r);
+        }
         public IActionResult Confirmacion() {
             return View();
         }   
+
     }
 }

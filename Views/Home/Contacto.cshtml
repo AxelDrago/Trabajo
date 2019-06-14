@@ -2,13 +2,21 @@
 @{
     ViewBag.Titulo = "Contacto";
 }
-<form asp-action="contacto" method="post">
+<form asp-action="Contacto" method="post">
     <div asp-validation-summary="All"></div>
-    <div>
-        Nombre: <input asp-for="Nombre">
+    <div class="form-group col-7">
+        <label>Nombre: </label>
+        <input asp-for="Nombre" class="form-control" placeholder="Nombre">
     </div>
-    <div>
-        Descripcion: <textarea asp-for="Descripcion"></textarea>
+    <div class="form-group col-7">
+        <label>Email: </label>
+        <input asp-for="Email" class="form-control" placeholder="Email">
     </div>
-    <button>Registrar</button>
+    <div class="form-group col-7">
+        <label for="exampleFormControlTextarea1">Descripcion: </label>
+        <textarea asp-for="Descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group col-2">
+        <button class="btn btn-primary">Enviar</button>
+    </div>
 </form>
