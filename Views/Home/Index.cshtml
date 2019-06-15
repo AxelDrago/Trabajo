@@ -1,13 +1,16 @@
 @model List<Mascota>
 
-<h1 class="text-center bg-gradient-primary">Mascotas en adopcion</h1>
-
+<div class="mx-auto">
+<h1 class="text-center bg-gradient-primary">Mascotas en Adopción</h1>
+</div>
 @if (Model.Count == 0)
 {
     <p>Aún no hay mascotas para adoptar</p>
 }
+
+
 <div class="row">
-    <div class="col-3">
+    <div class="container col-3">
         <div class="pos-f-t">
             <nav class="navbar navbar-dark bg-dark">
                 <span class="text-light font-weight-bold">Filtrar Mascotas</span>
@@ -18,7 +21,7 @@
             
         </div>
         <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-light p-4">
+            <div class="form-group bg-light p-2">
                 <form asp-action="index" method="get">
                     Tipo de Mascota:
                     <select name="tipomascota">
@@ -35,29 +38,29 @@
     </div>
 
     <div class="col-9">
-        <div class="card-group">
-            @foreach (var m in Model)
-            {
-                <div class="col-sm-6">
-                    <div class="card text-center text-white bg-secondary mb-3">
-                        <div class="card-body">
-                            <h2 class="card-title">Nombre: @m.NombreTemporal</h2>
-                            <h3>Edad: @m.Edad</h3>
-                            <h3>Raza: @m.Raza</h3>
-                            <h3>Sexo:
-                                @if (@m.Sexo=="0")
+        @foreach (var m in Model)
+        {
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="container col-md-3" >
+                    <img src="@m.Foto" class="card-img img-fluid" alt="Responsive image" style="max-width: 500px; max-height: 300px;">
+                    </div>
+                    <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre: @m.NombreTemporal</h5>
+                        <p class="card-text">Edad: @m.Edad</p>
+                        <p class="card-text">Raza: @m.Raza</p> 
+                        <p class="card-text">Sexo: @if (@m.Sexo=="0")
                                 {
                                 <text>Macho</text>
                                 }else if (@m.Sexo=="1"){
                                     <text>Hembra</text>
-                                }
-                            </h3>
-                            <p class="card-text">Descripcion: @m.Descripcion</p>
-                        </div>
-                    <img src="@m.Foto" class="img-fluid " alt="Responsive image">
+                                }</p>
+                        <p class="card-text">Descripción: @m.Descripcion</p>                            
+                    </div>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
 </div>
