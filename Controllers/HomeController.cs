@@ -23,6 +23,7 @@ namespace Trabajo.Controllers
                 mascotas = _context.Mascotas.Include(x => x.Tipo)
                             .Where(x => x.TipoId == tipomascota).ToList();
             }
+
             return View(mascotas);
         }
 

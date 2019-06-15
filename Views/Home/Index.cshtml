@@ -23,14 +23,30 @@
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="form-group bg-light p-2">
                 <form asp-action="index" method="get">
-                    Tipo de Mascota:
-                    <select name="tipomascota">
-                        <option value="0">Todos</option>
-                        @foreach(var t in (List<TipoMascota>)ViewBag.Tipos)
-                        {
-                            <option value="@t.Id">@t.Nombre</option>
-                        }
-                    </select>
+                    <div>
+                        <label>Tipo de Mascota: </label>
+                            <select name="tipomascota">
+                                <option value="0">Todos</option>
+                                @foreach(var t in (List<TipoMascota>)ViewBag.Tipos)
+                                {
+                                    <option value="@t.Id">@t.Nombre</option>
+                                }
+                            </select>
+                    </div>
+
+                    <div>
+                        <label>Edad: </label>
+                    </div>
+
+                    <div>
+                        <label>Sexo: </label>
+                                <select name="">
+                                    <option value="0">Ambos</option>
+                                    <option value="1">Macho</option>
+                                    <option value="2">Hembra</option>
+                                </select>                      
+                    </div>
+
                     <button class="btn btn-dark">Filtrar</button>
                 </form>
             </div>

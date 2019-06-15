@@ -43,10 +43,18 @@
         </nav>
     </header>
 
-    <div class="container-fluid">
-        @RenderBody()
-    </div>
+    <main class="bd-content" id="content" role="main">
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </main>
     
-    <footer class="card-footer text-muted text-center">&copy; @DateTime.Now.Year - ICare</footer>
+    <footer class="card-footer text-muted">
+        <div class="container-fluid p-3">
+            <div class="container text-center"> 
+                <span>&copy; @DateTime.Now.Year - ICare </span>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
