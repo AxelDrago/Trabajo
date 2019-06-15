@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2019 a las 21:11:35
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.2.12
+-- Tiempo de generación: 14-06-2019 a las 08:49:42
+-- Versión del servidor: 10.3.15-MariaDB
+-- Versión de PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `aspnetroleclaims` (
   `Id` int(11) NOT NULL,
   `RoleId` varchar(255) NOT NULL,
-  `ClaimType` longtext,
-  `ClaimValue` longtext
+  `ClaimType` longtext DEFAULT NULL,
+  `ClaimValue` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -45,7 +45,7 @@ CREATE TABLE `aspnetroles` (
   `Id` varchar(255) NOT NULL,
   `Name` varchar(256) DEFAULT NULL,
   `NormalizedName` varchar(256) DEFAULT NULL,
-  `ConcurrencyStamp` longtext
+  `ConcurrencyStamp` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -57,8 +57,8 @@ CREATE TABLE `aspnetroles` (
 CREATE TABLE `aspnetuserclaims` (
   `Id` int(11) NOT NULL,
   `UserId` varchar(255) NOT NULL,
-  `ClaimType` longtext,
-  `ClaimValue` longtext
+  `ClaimType` longtext DEFAULT NULL,
+  `ClaimValue` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -70,7 +70,7 @@ CREATE TABLE `aspnetuserclaims` (
 CREATE TABLE `aspnetuserlogins` (
   `LoginProvider` varchar(128) NOT NULL,
   `ProviderKey` varchar(128) NOT NULL,
-  `ProviderDisplayName` longtext,
+  `ProviderDisplayName` longtext DEFAULT NULL,
   `UserId` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -98,10 +98,10 @@ CREATE TABLE `aspnetusers` (
   `Email` varchar(256) DEFAULT NULL,
   `NormalizedEmail` varchar(256) DEFAULT NULL,
   `EmailConfirmed` bit(1) NOT NULL,
-  `PasswordHash` longtext,
-  `SecurityStamp` longtext,
-  `ConcurrencyStamp` longtext,
-  `PhoneNumber` longtext,
+  `PasswordHash` longtext DEFAULT NULL,
+  `SecurityStamp` longtext DEFAULT NULL,
+  `ConcurrencyStamp` longtext DEFAULT NULL,
+  `PhoneNumber` longtext DEFAULT NULL,
   `PhoneNumberConfirmed` bit(1) NOT NULL,
   `TwoFactorEnabled` bit(1) NOT NULL,
   `LockoutEnd` datetime(6) DEFAULT NULL,
@@ -115,8 +115,7 @@ CREATE TABLE `aspnetusers` (
 
 INSERT INTO `aspnetusers` (`Id`, `UserName`, `NormalizedUserName`, `Email`, `NormalizedEmail`, `EmailConfirmed`, `PasswordHash`, `SecurityStamp`, `ConcurrencyStamp`, `PhoneNumber`, `PhoneNumberConfirmed`, `TwoFactorEnabled`, `LockoutEnd`, `LockoutEnabled`, `AccessFailedCount`) VALUES
 ('4e5e9609-c0ff-4e12-84a9-c2b316575c30', 'axel', 'AXEL', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'1', 'AQAAAAEAACcQAAAAEHSymkHCuQOggPakoWDhOpbReanxp9eJDA8aZw0mAssKft49sX9rH5KnDZQO2YCOAA==', 'SRRUNVP56677L67SPIZE7DPHGL3DJHUS', '2b589c99-b1dd-4d72-bff1-33a083406642', NULL, b'1', b'1', NULL, b'1', 0),
-('de265611-1d9a-4c24-bf72-4bcfb72add73', 'alex', 'ALEX', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'0', 'AQAAAAEAACcQAAAAEP75XlvheVKOk51CSUwk45pYNB24wiStjzS+FOqezahaqLRedoVArSaII+vdk2mdXg==', 'KQH5XU3OFTFRY6OWN3ZSCUEA2PINGYKE', '4360f8f8-4ca2-4980-9956-7b5e72b30a9f', NULL, b'0', b'0', NULL, b'1', 0),
-('a02ef22b-b693-4c72-8951-ed8a4fdc556d', 'Luis', 'LUIS', 'luis@algo.com', 'LUIS@ALGO.COM', b'0', 'AQAAAAEAACcQAAAAEOsWQqa+0+PvkZpGZjTngud1XJAKPpaxHkmk3+hSdhG6RLEjwciqIYYTmylAzH7aUw==', 'IWZIN3XFQLJRUSLL6OGLTRKWBD6JVM2B', '68f7e5ff-8c69-4aef-8bf4-10884e3201ff', NULL, b'0', b'0', NULL, b'1', 0);
+('de265611-1d9a-4c24-bf72-4bcfb72add73', 'alex', 'ALEX', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'0', 'AQAAAAEAACcQAAAAEP75XlvheVKOk51CSUwk45pYNB24wiStjzS+FOqezahaqLRedoVArSaII+vdk2mdXg==', 'KQH5XU3OFTFRY6OWN3ZSCUEA2PINGYKE', '4360f8f8-4ca2-4980-9956-7b5e72b30a9f', NULL, b'0', b'0', NULL, b'1', 0);
 
 -- --------------------------------------------------------
 
@@ -128,7 +127,7 @@ CREATE TABLE `aspnetusertokens` (
   `UserId` varchar(255) NOT NULL,
   `LoginProvider` varchar(128) NOT NULL,
   `Name` varchar(128) NOT NULL,
-  `Value` longtext
+  `Value` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -142,7 +141,7 @@ CREATE TABLE `evento` (
   `Titulo` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `Contenido` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `TipoId` int(11) NOT NULL,
-  `Foto` longtext
+  `Foto` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -200,10 +199,10 @@ INSERT INTO `mascotas` (`Id`, `NombreTemporal`, `Edad`, `Foto`, `TipoId`, `Raza`
 
 CREATE TABLE `sugerencias` (
   `Id` int(11) NOT NULL,
-  `Nombre` longtext COLLATE utf8mb4_bin NOT NULL,
-  `Email` longtext COLLATE utf8mb4_bin NOT NULL,
-  `Descripcion` longtext COLLATE utf8mb4_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  `Nombre` longtext NOT NULL,
+  `Email` longtext NOT NULL,
+  `Descripcion` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `sugerencias`
@@ -212,6 +211,10 @@ CREATE TABLE `sugerencias` (
 INSERT INTO `sugerencias` (`Id`, `Nombre`, `Email`, `Descripcion`) VALUES
 (1, 'Sebastian', 'sebastian@gmail.com', 'Buenas opciones de adopcion'),
 (2, 'Sebastian', 'sebastian@gmail.com', 'Muchas opciones'),
+(3, 'Sebastian', 'sebastian@gmail.com', 'HOLA'),
+(4, 'Sebastian', 'sebastian@gmail.com', 'buenas'),
+(5, 'Sebastian', 'sebastian@gmail.com', 'dasdas'),
+(6, 'Sebastian', 'sebastian@gmail.com', 'dacxx');
 
 -- --------------------------------------------------------
 
@@ -256,7 +259,6 @@ INSERT INTO `tipos` (`Id`, `Nombre`) VALUES
 (6, 'Anfibio'),
 (7, 'Pez');
 
-
 -- --------------------------------------------------------
 
 --
@@ -280,8 +282,7 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20190613190312_eventos', '2.2.4-servicing-10062'),
 ('20190613193841_evento2', '2.2.4-servicing-10062'),
 ('20190613195947_fotoevento', '2.2.4-servicing-10062'),
-('20190614031858_Sugerencias', '2.2.4-servicing-10062'),
-('20190615184129_contacto', '2.2.4-servicing-10062');
+('20190614031858_Sugerencias', '2.2.4-servicing-10062');
 
 --
 -- Índices para tablas volcadas
@@ -372,13 +373,13 @@ ALTER TABLE `evento`
 -- AUTO_INCREMENT de la tabla `mascotas`
 --
 ALTER TABLE `mascotas`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `sugerencias`
 --
 ALTER TABLE `sugerencias`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tipoc`
@@ -390,7 +391,7 @@ ALTER TABLE `tipoc`
 -- AUTO_INCREMENT de la tabla `tipos`
 --
 ALTER TABLE `tipos`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
