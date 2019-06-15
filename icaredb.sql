@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-06-2019 a las 23:54:34
+-- Tiempo de generación: 15-06-2019 a las 21:11:35
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.12
 
@@ -115,7 +115,8 @@ CREATE TABLE `aspnetusers` (
 
 INSERT INTO `aspnetusers` (`Id`, `UserName`, `NormalizedUserName`, `Email`, `NormalizedEmail`, `EmailConfirmed`, `PasswordHash`, `SecurityStamp`, `ConcurrencyStamp`, `PhoneNumber`, `PhoneNumberConfirmed`, `TwoFactorEnabled`, `LockoutEnd`, `LockoutEnabled`, `AccessFailedCount`) VALUES
 ('4e5e9609-c0ff-4e12-84a9-c2b316575c30', 'axel', 'AXEL', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'1', 'AQAAAAEAACcQAAAAEHSymkHCuQOggPakoWDhOpbReanxp9eJDA8aZw0mAssKft49sX9rH5KnDZQO2YCOAA==', 'SRRUNVP56677L67SPIZE7DPHGL3DJHUS', '2b589c99-b1dd-4d72-bff1-33a083406642', NULL, b'1', b'1', NULL, b'1', 0),
-('de265611-1d9a-4c24-bf72-4bcfb72add73', 'alex', 'ALEX', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'0', 'AQAAAAEAACcQAAAAEP75XlvheVKOk51CSUwk45pYNB24wiStjzS+FOqezahaqLRedoVArSaII+vdk2mdXg==', 'KQH5XU3OFTFRY6OWN3ZSCUEA2PINGYKE', '4360f8f8-4ca2-4980-9956-7b5e72b30a9f', NULL, b'0', b'0', NULL, b'1', 0);
+('de265611-1d9a-4c24-bf72-4bcfb72add73', 'alex', 'ALEX', 'axeljoeldragoespinoza@gmail.com', 'AXELJOELDRAGOESPINOZA@GMAIL.COM', b'0', 'AQAAAAEAACcQAAAAEP75XlvheVKOk51CSUwk45pYNB24wiStjzS+FOqezahaqLRedoVArSaII+vdk2mdXg==', 'KQH5XU3OFTFRY6OWN3ZSCUEA2PINGYKE', '4360f8f8-4ca2-4980-9956-7b5e72b30a9f', NULL, b'0', b'0', NULL, b'1', 0),
+('a02ef22b-b693-4c72-8951-ed8a4fdc556d', 'Luis', 'LUIS', 'luis@algo.com', 'LUIS@ALGO.COM', b'0', 'AQAAAAEAACcQAAAAEOsWQqa+0+PvkZpGZjTngud1XJAKPpaxHkmk3+hSdhG6RLEjwciqIYYTmylAzH7aUw==', 'IWZIN3XFQLJRUSLL6OGLTRKWBD6JVM2B', '68f7e5ff-8c69-4aef-8bf4-10884e3201ff', NULL, b'0', b'0', NULL, b'1', 0);
 
 -- --------------------------------------------------------
 
@@ -184,6 +185,29 @@ INSERT INTO `mascotas` (`Id`, `NombreTemporal`, `Edad`, `Foto`, `TipoId`, `Raza`
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `sugerencias`
+--
+
+CREATE TABLE `sugerencias` (
+  `Id` int(11) NOT NULL,
+  `Nombre` longtext COLLATE utf8mb4_bin NOT NULL,
+  `Email` longtext COLLATE utf8mb4_bin NOT NULL,
+  `Descripcion` longtext COLLATE utf8mb4_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Volcado de datos para la tabla `sugerencias`
+--
+
+INSERT INTO `sugerencias` (`Id`, `Nombre`, `Email`, `Descripcion`) VALUES
+(2, 'luis', 'luis@algo.com', 'Prueba1'),
+(3, 'luis', 'luis@algo.com', 'prueba2'),
+(4, 'luis', 'luis@algo.com', 'prueba3'),
+(5, 'luis', 'luis@algo.com', 'Prueba4');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tipoc`
 --
 
@@ -243,7 +267,9 @@ INSERT INTO `__efmigrationshistory` (`MigrationId`, `ProductVersion`) VALUES
 ('20190612213435_Campaña', '2.2.4-servicing-10062'),
 ('20190613190312_eventos', '2.2.4-servicing-10062'),
 ('20190613193841_evento2', '2.2.4-servicing-10062'),
-('20190613195947_fotoevento', '2.2.4-servicing-10062');
+('20190613195947_fotoevento', '2.2.4-servicing-10062'),
+('20190614031858_Sugerencias', '2.2.4-servicing-10062'),
+('20190615184129_contacto', '2.2.4-servicing-10062');
 
 --
 -- Índices para tablas volcadas
@@ -283,6 +309,12 @@ ALTER TABLE `evento`
 ALTER TABLE `mascotas`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `IX_Mascotas_TipoId` (`TipoId`);
+
+--
+-- Indices de la tabla `sugerencias`
+--
+ALTER TABLE `sugerencias`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indices de la tabla `tipoc`
@@ -329,6 +361,12 @@ ALTER TABLE `evento`
 --
 ALTER TABLE `mascotas`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `sugerencias`
+--
+ALTER TABLE `sugerencias`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tipoc`
