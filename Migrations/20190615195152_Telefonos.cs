@@ -12,12 +12,5 @@ namespace Trabajo.Migrations
                 nullable: false,
                 defaultValue: "");
         }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropColumn(
-                name: "Telefono",
-                table: "Mascotas");
-        }
     }
 }
