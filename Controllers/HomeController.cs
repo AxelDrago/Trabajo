@@ -92,9 +92,6 @@ namespace Trabajo.Controllers
             if (ModelState.IsValid) {
                 _context.Add(r);
                 _context.SaveChanges();
-                TempData["nombre"] = r.Nombre;
-                TempData["email"] = r.Email;
-                TempData["descripcion"] = r.Descripcion;
                 return RedirectToAction("Confirmacion");
             }
             ViewBag.Sugerencias = _context.Sugerencias.ToList();

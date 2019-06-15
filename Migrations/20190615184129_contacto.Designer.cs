@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trabajo.Models;
 
 namespace Trabajo.Migrations
 {
     [DbContext(typeof(ICareContext))]
-    partial class ICareContextModelSnapshot : ModelSnapshot
+    [Migration("20190615184129_contacto")]
+    partial class contacto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,9 +241,6 @@ namespace Trabajo.Migrations
                         .IsRequired();
 
                     b.Property<string>("Sexo")
-                        .IsRequired();
-
-                    b.Property<string>("Telefono")
                         .IsRequired();
 
                     b.Property<int>("TipoId");

@@ -12,6 +12,8 @@ namespace Trabajo.Models
         public string Descripcion { get; set; }                  
         [Required]
         public int Edad { get; set; }
+        [Required]
+        public string Telefono { get; set; }
         public TipoMascota Tipo { get; set; }
         [Required]
         public string Foto { get; set; }
