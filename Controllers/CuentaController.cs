@@ -17,6 +17,7 @@ namespace Trabajo.Controllers
         private UserManager<IdentityUser> _userManager;
         private SignInManager<IdentityUser> _signInManager;
 
+
         public CuentaController(
             ICareContext i,
             UserManager<IdentityUser> um,
