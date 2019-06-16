@@ -13,7 +13,6 @@ namespace Trabajo.Controllers
 {
     public class HomeController: Controller
     {
-
         public IActionResult Index(int tipomascota, int sexomascota, int edadmascota)
         {
             ViewBag.Tipos = _context.Tipos.ToList();
