@@ -33,6 +33,7 @@
                 <ul class="nav justify-content-end">
                     @if (Context.User.Identity.IsAuthenticated) {
                         <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Cuenta" asp-action="Logout">Cerrar sesión</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Cuenta" asp-action="modificarContrasena">Modificar Contraseña</a></li>
                     }
                     else {
                         <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Cuenta" asp-action="RegistrarCuenta">Crear cuenta</a></li>
