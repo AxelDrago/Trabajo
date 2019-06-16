@@ -1,22 +1,21 @@
 @model List<Mascota>
 
-<div class="mx-auto">
-<h1 class="text-center bg-gradient-primary">Mascotas en Adopción</h1>
+<div class="mx-auto p-3">
+<h1 class="text-center font-weight-bold bg-gradient-primary">Mascotas en Adopción</h1>
 </div>
-
-
 
 <div class="row">
     <div class="container col-3">
         <div class="pos-f-t">
-            <nav class="navbar navbar-dark bg-dark">
-                <span class="text-light font-weight-bold">Filtrar Mascotas</span>            
+            
+            <nav class="navbar rgba-indigo-strong">
+                <span class="text-white font-weight-bold">Filtrar Mascotas</span>            
                 </button>               
             </nav>
             
         </div>
         <div>
-            <div class="form-group bg-light p-2">
+            <div class="form-group grey lighten-2 p-2">
                 <form asp-action="index" method="get">
                     <div>
                         <label>Tipo de Mascota: </label>
@@ -37,8 +36,7 @@
                                 {
                                     <option value="@i">@i</option>
                                 }
-                            </select>
-                       
+                            </select>                      
                     </div>
 
                     <div>
@@ -49,8 +47,9 @@
                                     <option value="1">Hembra</option>
                                 </select>                      
                     </div>
+                 
+                    <button class="btn text-white rgba-indigo-strong font-weight-bold btn-lg btn-block">Filtrar</button>
 
-                    <button class="btn btn-dark">Filtrar</button>
                 </form>
             </div>
         </div>
@@ -66,23 +65,27 @@
         {
             <div class="card mb-3">
                 <div class="row no-gutters">
-                    <div class="container col-md-3" >
-                    <img src="@m.Foto" class="card-img img-fluid" alt="Responsive image" style="max-width: 500px; max-height: 300px;">
+                    <div class="container-fluid text-center col-md-3 view overlay zoom">
+                        <img src="@m.Foto" class="card-img img-fluid" style="max-width: 500px; max-height: 300px;" alt="zoom">
                     </div>
                     <div class="col-md-9">
-                    <div class="card-body">
-                        <h5 class="card-title">Nombre: @m.NombreTemporal</h5>
-                        <p class="card-text">Edad: @m.Edad</p>
-                        <p class="card-text">Raza: @m.Raza</p> 
-                        <p class="card-text">Sexo: @if (@m.Sexo=="0")
-                                {
-                                <text>Macho</text>
-                                }else if (@m.Sexo=="1"){
-                                    <text>Hembra</text>
-                                }</p>
-                        <p class="card-text">Telefono: @m.Telefono</p> 
-                        <p class="card-text">Descripción: @m.Descripcion</p>                            
-                    </div>
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <h5 class="card-header rgba-blue-grey-strong font-weight-bold white-text">@m.NombreTemporal</h5>
+                            </div>
+                            <div class="card-body container-fluid">
+                            <p class="card-text"><strong>Edad:</strong> @m.Edad años</p>
+                            <p class="card-text"><strong>Raza:</strong> @m.Raza</p> 
+                            <p class="card-text"><strong>Sexo:</strong> @if (@m.Sexo=="0")
+                                    {
+                                    <text>Macho</text>
+                                    }else if (@m.Sexo=="1"){
+                                        <text>Hembra</text>
+                                    }</p>
+                            <p class="card-text"><strong>Teléfono de Contacto:</strong> @m.Telefono</p> 
+                            <p class="card-text"><strong>Descripción:</strong> @m.Descripcion</p>  
+                            </div>                          
+                        </div>
                     </div>
                 </div>
             </div>
