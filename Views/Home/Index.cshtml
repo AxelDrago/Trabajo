@@ -3,10 +3,7 @@
 <div class="mx-auto">
 <h1 class="text-center bg-gradient-primary">Mascotas en Adopción</h1>
 </div>
-@if (Model.Count == 0)
-{
-    <p>Aún no hay mascotas para adoptar</p>
-}
+
 
 
 <div class="row">
@@ -35,15 +32,23 @@
                     </div>
 
                     <div>
-                        <label>Edad: </label>
+                        <label>Edad: </label>                       
+                            <select name="edadmascota">
+                                <option value="0">Todas</option>
+                                @for(var i = 1; i < 11; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
+                       
                     </div>
 
                     <div>
                         <label>Sexo: </label>
-                                <select name="">
-                                    <option value="0">Ambos</option>
-                                    <option value="1">Macho</option>
-                                    <option value="2">Hembra</option>
+                                <select name="sexomascota">
+                                    <option value="2">Ambos</option>
+                                    <option value="0">Macho</option>
+                                    <option value="1">Hembra</option>
                                 </select>                      
                     </div>
 
@@ -54,6 +59,11 @@
     </div>
 
     <div class="col-9">
+        @if (Model.Count == 0)
+        {
+            <h1>Aún no hay mascotas para adoptar</h1>
+        }
+
         @foreach (var m in Model)
         {
             <div class="card mb-3">
@@ -81,3 +91,4 @@
         }
     </div>
 </div>
+
