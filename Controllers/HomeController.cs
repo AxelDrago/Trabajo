@@ -114,6 +114,10 @@ namespace Trabajo.Controllers
         }
         public IActionResult Confirmacion() {
             return View();
+        }
+
+        public IActionResult Esterilizacion() {
+            return View();
         }   
 
     }
