@@ -1,22 +1,29 @@
 @model List<Evento>
 
-<h1>Eventos</h1>
+@{
+    ViewBag.Titulo = "Lista de Eventos";
+}
 
+<div class="mx-auto p-3">
+    <h1 class="text-center font-weight-bold bg-gradient-primary">Eventos para tus Mascotas</h1>
+</div>
+<div class="col-4 m-3">
 <form asp-action="listaevento" method="get">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            Filtrar por tipo de Evento:
-            <select name="tipoevento" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-            <option selected>Todos...</option>
-            @foreach(var t in (List<TipoEvento>)ViewBag.TipoC)
-            {
-                <option value="@t.Id">@t.Nombre</option>
-            }
+    <div class="form-row container">
+        <div class="form-inline">
+            <label>Filtrar por tipo de Evento: </label>  
+            <select name="tipoevento" id="inlineFormCustomSelect">
+                <option selected>Todos</option>
+                @foreach(var t in (List<TipoEvento>)ViewBag.TipoC)
+                {
+                    <option value="@t.Id">@t.Nombre</option>
+                }
             </select>
         </div>  
-        <button class="btn btn-primary">Filtrar</button>
+        <button class="btn text-white rgba-indigo-strong font-weight-bold">Filtrar</button>
     </div>
 </form>
+</div>
 
 @if (Model.Count == 0)
 {
@@ -25,17 +32,27 @@
 
 <br>
 
- <div class="card-group">  
-@foreach (var m in Model)
-{
-        <div class="col-sm-6">
-            <div class="card text-center text-white bg-secondary mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Titulo: @m.Titulo</h2>
-                    <p class="card-text">Descripcion: @m.Contenido</p>
+
+    <div>  
+        @foreach (var m in Model)
+        {
+            <div class="card mb-3 rgba-blue-slight">
+                <div class="row no-gutters">
+                    <div class="container-fluid text-center col-md-3">
+                        <img src="@m.Foto" class="card-img img-fluid">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <h5 class="card-header rgba-blue-strong font-weight-bold white-text">@m.Titulo</h5>  
+                            </div>
+                            <div class="card-body container-fluid">
+                            <p class="card-text"><strong>Descripción: </strong>@m.Contenido</p>                            
+                            </div>                          
+                        </div>
+                    </div>
                 </div>
-                <img src="@m.Foto" class="card-img-top">  
             </div>
-        </div>
-}
-</div>
+        }
+    </div>
+

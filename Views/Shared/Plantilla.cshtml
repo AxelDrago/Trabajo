@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@ViewData["Title"] - ICare</title>
+    <title>@ViewBag.Titulo</title>
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -22,12 +22,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
-
-    
+ 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg rgba-indigo-strong">
+    <header class="sticky-top rgba-indigo-strong">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="~/"><img src="~/img/ICare.png" style="max-width: 89px; max-height: 40px" ></a>
@@ -40,10 +39,10 @@
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-primary">
                             <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Evento">Registrar Eventos</a></li>
-                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="ListaEvento">Listado de Eventos</a></li>
-                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Esterilizacion">Esterilización</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="ListaEvento">Listado de Eventos</a></li>                 
                         </ul>
-                    </li>                
+                    </li>
+                    <li class="nav-item"><a class="nav-link font-weight-bold text-white" asp-area="" asp-controller="Home" asp-action="Esterilizacion">Esterilización</a></li>                
                 </ul>
                 <ul class="nav justify-content-end">
                     @if (Context.User.Identity.IsAuthenticated) {
@@ -59,16 +58,18 @@
         </nav>
     </header>
   
-    <div class="rgba-indigo-slight container-fluid">
+    <div class="container-fluid p-3 rgba-stylish-slight">
         @RenderBody()
     </div>   
     
-    <div class="card-footer text-muted">
-        <div class="container-fluid p-3">
-            <div class="container text-center"> 
-                <span>&copy; @DateTime.Now.Year - ICare </span>
+    <footer id="footer">
+        <div class="card-footer text-muted">
+            <div class="container-fluid p-3">
+                <div class="container text-center"> 
+                    <span>&copy; @DateTime.Now.Year - ICare </span>
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 </html>

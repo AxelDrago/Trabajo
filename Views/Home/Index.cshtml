@@ -1,58 +1,64 @@
 @model List<Mascota>
 
+@{
+    ViewBag.Titulo = "Inicio";
+}
+
 <div class="mx-auto p-3">
 <h1 class="text-center font-weight-bold bg-gradient-primary">Mascotas en Adopción</h1>
 </div>
 
 <div class="row">
+
     <div class="container col-3">
-        <div class="pos-f-t">
-            
-            <nav class="navbar rgba-indigo-strong">
-                <span class="text-white font-weight-bold">Filtrar Mascotas</span>            
-                </button>               
-            </nav>
-            
-        </div>
-        <div>
-            <div class="form-group grey lighten-2 p-2">
-                <form asp-action="index" method="get">
-                    <div>
-                        <label>Tipo de Mascota: </label>
-                            <select name="tipomascota">
-                                <option value="0">Todos</option>
-                                @foreach(var t in (List<TipoMascota>)ViewBag.Tipos)
-                                {
-                                    <option value="@t.Id">@t.Nombre</option>
-                                }
-                            </select>
-                    </div>
-
-                    <div>
-                        <label>Edad: </label>                       
-                            <select name="edadmascota">
-                                <option value="0">Todas</option>
-                                @for(var i = 1; i < 11; i++)
-                                {
-                                    <option value="@i">@i</option>
-                                }
-                            </select>                      
-                    </div>
-
-                    <div>
-                        <label>Sexo: </label>
-                                <select name="sexomascota">
-                                    <option value="2">Ambos</option>
-                                    <option value="0">Macho</option>
-                                    <option value="1">Hembra</option>
-                                </select>                      
-                    </div>
-                 
-                    <button class="btn text-white rgba-indigo-strong font-weight-bold btn-lg btn-block">Filtrar</button>
-
-                </form>
+        
+            <div class="pos-f-t">            
+                <nav class="navbar rgba-indigo-strong">
+                    <span class="text-white font-weight-bold">Filtrar Mascotas</span>            
+                    </button>               
+                </nav>           
             </div>
-        </div>
+
+            <div>
+                <div class="form-group grey lighten-2 p-2">
+                    <form asp-action="index" method="get">
+                        <div>
+                            <label>Tipo de Mascota: </label>
+                                <select name="tipomascota">
+                                    <option value="0">Todos</option>
+                                    @foreach(var t in (List<TipoMascota>)ViewBag.Tipos)
+                                    {
+                                        <option value="@t.Id">@t.Nombre</option>
+                                    }
+                                </select>
+                        </div>
+
+                        <div>
+                            <label>Edad: </label>                       
+                                <select name="edadmascota">
+                                    <option value="0">Todas</option>
+                                    @for(var i = 1; i < 11; i++)
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+                                </select>                      
+                        </div>
+
+                        <div>
+                            <label>Sexo: </label>
+                                    <select name="sexomascota">
+                                        <option value="2">Ambos</option>
+                                        <option value="0">Macho</option>
+                                        <option value="1">Hembra</option>
+                                    </select>                      
+                        </div>
+                    
+                        <button class="btn text-white rgba-indigo-strong font-weight-bold btn-lg btn-block">Filtrar</button>
+
+                    </form>
+                </div>
+            </div>
+        
     </div>
 
     <div class="col-9">
@@ -63,7 +69,7 @@
 
         @foreach (var m in Model)
         {
-            <div class="card mb-3">
+            <div class="card mb-3 rgba-blue-slight">
                 <div class="row no-gutters">
                     <div class="container-fluid text-center col-md-3 view overlay zoom">
                         <img src="@m.Foto" class="card-img img-fluid" style="max-width: 500px; max-height: 300px;" alt="zoom">
@@ -71,7 +77,7 @@
                     <div class="col-md-9">
                         <div class="card-body">
                             <div class="container-fluid">
-                                <h5 class="card-header rgba-blue-grey-strong font-weight-bold white-text">@m.NombreTemporal</h5>
+                                <h5 class="card-header rgba-blue-strong font-weight-bold white-text">@m.NombreTemporal</h5>  
                             </div>
                             <div class="card-body container-fluid">
                             <p class="card-text"><strong>Edad:</strong> @m.Edad años</p>

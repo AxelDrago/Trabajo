@@ -3,54 +3,49 @@
 @{
     ViewBag.Titulo = "Registrar Mascota";
 }
+<div class="text-center card container container-fluid">
+    <h2 class="h1-responsive font-weight-bold my-4">Formulario para registrar mascotas</h2>
+    <p class="w-responsive mx-auto mb-5">Ingrese todos los datos necesarios en sus respectivas casillas</p>
+    <form class="" asp-action="registrar mascota" method="post">
+        <div asp-validation-summary="All"></div>
+        <div class="form-group col-7">
+            <input asp-for="NombreTemporal" class="form-control"  placeholder="Nombre">
+        </div>
+        <div class="form-group col-7">
+            <input asp-for="Edad" class="form-control"  placeholder="Edad">
+        </div>
+        <div class="form-group align-items-center col-7">
+            <select name="Sexo" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Sexo</option>
+                <option value="0">Macho</option>
+                <option value="1">Hembra</option>    
+            </select>
+        </div>
+        <div class="form-group col-7">
+            <input asp-for="Foto" class="form-control"  placeholder="Foto (URL de la imagen)">
+        </div>
+        <div class="form-group align-items-center col-7">
+            <select name="TipoId" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Tipo de Mascota</option>
+                @foreach(var t in (List<TipoMascota>)ViewBag.Tipos)
+                {
+                    <option value="@t.Id">@t.Nombre</option>
+                }
 
-<form asp-action="registrar mascota" method="post">
-    <div asp-validation-summary="All"></div>
-    <div class="form-group col-7">
-        <label>Nombre: </label>
-        <input asp-for="NombreTemporal" class="form-control"  placeholder="Nombre">
-    </div>
-    <div class="form-group col-7">
-        <label>Edad: </label>
-        <input asp-for="Edad" class="form-control"  placeholder="Edad">
-    </div>
-    <div class="form-row align-items-center col-7">
-        <label>Sexo:</label> 
-        <select name="Sexo" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-            <option selected>Escoger...</option>
-            <option value="0">Macho</option>
-            <option value="1">Hembra</option>    
-        </select>   
-    </div>
-    <div class="form-group col-7">
-        <label>Foto: </label>
-        <input asp-for="Foto" class="form-control"  placeholder="Foto">
-    </div>
-    <div class="form-row align-items-center col-7">
-        <label>Tipo:</label>
-        <select name="TipoId" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-            <option selected>Escoger...</option>
-            @foreach(var t in (List<TipoMascota>)ViewBag.Tipos)
-            {
-                <option value="@t.Id">@t.Nombre</option>
-            }
-
-            
-        </select>
-    </div>
-    <div class="form-group col-7">
-        <label>Raza: </label>
-        <input asp-for="Raza" class="form-control" placeholder="Raza">
-    </div>
-    <div class="form-group col-7">
-        <label>Telefono: </label>
-        <input asp-for="Telefono" class="form-control" placeholder="Telefono">
-    </div>
-    <div class="form-group col-7">
-        <label for="exampleFormControlTextarea1">Descripcion: </label>
-        <textarea asp-for="Descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    <div class="form-group col-2">
-        <button class="btn btn-primary">Registrar</button>
-    </div>
-</form>
+                
+            </select>
+        </div>
+        <div class="form-group col-7">
+            <input asp-for="Raza" class="form-control" placeholder="Raza">
+        </div>
+        <div class="form-group col-7">
+            <input asp-for="Telefono" class="form-control" placeholder="Teléfono de Contacto">
+        </div>
+        <div class="form-group col-7">
+            <textarea asp-for="Descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Más información de la mascota"></textarea>
+        </div>
+        <div class="form-group col-2">
+            <button class="btn text-white rgba-indigo-strong font-weight-bold">Registrar</button>
+        </div>
+    </form>
+</div>
